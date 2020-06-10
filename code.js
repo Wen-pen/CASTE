@@ -174,9 +174,9 @@ function pickJob(status){
 	
 }
 const playerName = prompt('What is your name?');
-const player = new Character(playerName, 990, 'Lower Class', Jobless, False , 0 , False);
+const player = new Character(playerName, 100000 , 'Middle Class', new Jobless(), true , 5 , false);
 
-function university{
+function university(){
 
 	if(player.money <= 5000 || player.higherEducation === true){
 		alert('You do not have enough money to go to university');
@@ -206,7 +206,7 @@ function main(){
 	for(i = 1; i < Infinity;){
 	
 		console.log(player.name, player.money);
-		if(player.money === 1000 || player.money > 1000){
+		if(player.money > 1000 && player.status === 'Lower Class'){
 			alert(`Lower Middle Class Achieved`);
 			player.status = 'Lower Middle Class';
 			main1();
@@ -234,47 +234,50 @@ function main1() {
 	for(i = 1; i < Infinity;){
 	
 		console.log(player.name, player.money);
-		if(player.money >= 10000 && player.higherEducation === true && player.assets = 1){
+		if(player.money > 9999 && player.status === 'Lower Middle Class' && player.higherEducation === true && player.assets === 1){
 			alert(`Middle Class Achieved`);
+			player.status = 'Middle Class';
 			main2();
 			break;
+
 		}
 
-    	const menuPrompt = prompt(`Pick your options: \n 1. Get A Job \n 2. Go to work \n 3. Buy Assets \n 4. Attain higher education \n 5. Move on to next day \n This is Day ${i} \n ${player.status} ` );
-		 if(menuPrompt === '1')
+    	const menuPrompt = prompt(`Pick your options: \n 1. Get A Job \n 2. Go to work \n 3. Attain Higher Education \n 4. Buy Assets \n  5. Move on to next day \n This is Day ${i} \n ${player.status} \n ${player.money}` );
+		 if(menuPrompt === '1'){
 		 	pickJob(player.status);
 		 }else if(menuPrompt === '2'){
 		 	player.job.moneyMaker();
 		 }else if(menuPrompt === '3'){
-		 	buyAssets();
-		 }else if(menuPrompt === '4'){
 		 	university();
+		 }else if(menuPrompt === '4'){
+		 	buyAssets();
 		 }else{
 		 	i++
 		 }
-		 	
+	}
 }
 
 function main2() {
 	for(i = 1; i < Infinity;){
 	
 		console.log(player.name, player.money);
-		if(player.money >= 100000 && player.higherEducation === true && player.assets === 1){
-			alert(`Congratulations, You've beaten the game!`);
+		if(player.money > 99999 && player.status === 'Middle Class' && player.higherEducation === true && player.assets === 5){
 			break;
 		}
 
-    	const menuPrompt = prompt(`Pick your options: \n 1. Get A Job \n 2. Go to work \n 3. Buy Assets \n 4. Attain higher education \n 5. Move on to next day \n This is Day ${i} \n ${player.status} ` );
-		 if(menuPrompt === '1')
+    	const menuPrompt = prompt(`Pick your options: \n 1. Get A Job \n 2. Go to work \n 3. Buy Assets \n 4. Attain higher education \n 5. Move on to next day \n This is Day ${i} \n ${player.status} \n ${player.money}` );
+		 if(menuPrompt === '1'){
 		 	pickJob(player.status);
-		 }else if(menuPrompt === '2'){
+		 } if(menuPrompt === '2'){
 		 	player.job.moneyMaker();
-		 }else if(menuPrompt === '3'){
+		 } if(menuPrompt === '3'){
 		 	buyAssets();
-		 }else if(menuPrompt === '4'){
+		 } if(menuPrompt === '4'){
 		 	university();
-		 }else{
+		 }if(menuPrompt === '5'){
 		 	i++
 		 }
 		 	
+}
+
 }
