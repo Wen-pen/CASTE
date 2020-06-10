@@ -181,7 +181,7 @@ function pickJob(status){
 
 function university(){
 
-	if(player.money <= 5000 || player.higherEducation === true){
+	if(player.money <= 5000 || player.higherEducation === true || player.status === 'Lower Class'){
 		alert('You do not have enough money to go to university');
 	}else{
 		alert('You have attained higher education');
