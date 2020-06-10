@@ -1,5 +1,8 @@
 var jobPrompt;
 let i;
+const playerName = prompt('What is your name?');
+const player = new Character(playerName, 100000 , 'Middle Class', new Jobless(), true , 5 , false);
+
 class Character{
 	constructor(name, money, status, job, higherEducation, assets, mortgage){
 		this.name = name;
@@ -174,8 +177,7 @@ function pickJob(status){
 	}
 	
 }
-const playerName = prompt('What is your name?');
-const player = new Character(playerName, 100000 , 'Middle Class', new Jobless(), true , 5 , false);
+
 
 function university(){
 
