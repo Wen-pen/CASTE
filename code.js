@@ -1,33 +1,36 @@
-var jobPrompt;
-let i;
-const playerName = prompt('What is your name?');
-const player = new Character(playerName, 100000 , 'Middle Class', new Jobless(), true , 5 , false);
 
 class Character{
-	constructor(name, money, status, job, higherEducation, assets, mortgage){
+	constructor(name, money, status, job, higherEducation, assets){
 		this.name = name;
 		this.money = money;
 		this.status = status;
 		this.job = job;
 		this.higherEducation = higherEducation;
 		this.assets = assets;
-		this.mortgage = mortgage;
 	}
 }
 
 class Jobless{
-		constructor(jobname, jobValue){
-			this.jobname = Jobless;
-			this.jobValue = 0;
-		}
-		
+	constructor(jobname, jobValue){
+		this.jobname = Jobless;
+		this.jobValue = 0;
+	}
+	
 }
 
 Jobless.prototype.moneyMaker = () => {
-				player.money += player.job.jobValue;
-				i++;
-				alert('Made Money');
-		}
+			player.money += player.job.jobValue;
+			i++;
+			alert('Made Money');
+	}
+
+
+const playerName = prompt('What is your name?');
+const player = new Character(playerName, 100000 , 'Middle Class', new Jobless(), true , 5 , false);
+
+
+
+
 
 class ConstructionWorker extends Jobless{
 	constructor(jobname, jobValue){
@@ -113,11 +116,43 @@ class Doctor extends Nurse{
 		}
  }
 
+ class HeadDoctor extends Doctor{
+	 constructor(jobname, jobValue, jobPath){
+		 super(jobname, jobValue, jobPath)
+		 this.jobname = 'HeadDoctor';
+		 this.jobValue = 1000;
+	 }
+ }
+
+ class HeadAccountant extends Accountant{
+	constructor(jobname, jobValue, jobPath){
+		super(jobname, jobValue, jobPath)
+		this.jobname = 'HeadAccountant';
+		this.jobValue = 800;
+	}
+}
+
+class HeadPolice extends PoliceOfficer{
+	constructor(jobname, jobValue, jobPath){
+		super(jobname, jobValue, jobPath)
+		this.jobname = 'HeadPolice';
+		this.jobValue = 750;
+	}
+}
+
+class SeniorSoftwareDev extends SoftwareDev{
+	constructor(jobname, jobValue, jobPath){
+		super(jobname, jobValue, jobPath)
+		this.jobname = 'SeniorSoftwareDev';
+		this.jobValue = 1200;
+	}
+}
+
 function pickJob(status){
 	switch (status){
 		case 'Lower Class':
 
-			let jobPrompt = prompt('Pick your options: \n 1. Factory Worker \n 2. Waiter \n 3. Construction Worker');
+			jobPrompt = prompt('Pick your options: \n 1. Factory Worker \n 2. Waiter \n 3. Construction Worker');
 	
 		 	if(jobPrompt === '1'){
 		 		player.job = new FactoryWorker();
@@ -136,13 +171,13 @@ function pickJob(status){
 
 		case 'Lower Middle Class':
 
-			jobPrompt1 = prompt('Pick your options: \n 1. Office Help \n 2. School Teacher \n 3. Nurse');
+			jobPrompt = prompt('Pick your options: \n 1. Office Help \n 2. School Teacher \n 3. Nurse');
 
-		 	if(jobPrompt1 === '1'){
+		 	if(jobPrompt === '1'){
 		 		player.job = new OfficeHelp();
 		 		i++;
 		 	}
-		 	else if(jobPrompt1 === '2'){
+		 	else if(jobPrompt === '2'){
 		 		player.job = new SchoolTeacher();
 		 		i++;
 		 	}
@@ -155,17 +190,17 @@ function pickJob(status){
 
 		case 'Middle Class':
 
-		jobPrompt2 = prompt('Pick your options: \n 1. Doctor \n 2. Accountant \n 3. Police Officer \n 4. Software Developer');
+		jobPrompt = prompt('Pick your options: \n 1. Doctor \n 2. Accountant \n 3. Police Officer \n 4. Software Developer');
 
-		 	if(jobPrompt2 === '1'){
+		 	if(jobPrompt === '1'){
 		 		player.job = new Doctor();
 		 		i++;
 		 	}
-		 	else if(jobPrompt2 === '2'){
+		 	else if(jobPrompt === '2'){
 		 		player.job = new Accountant();
 		 		i++;
 		 	}
-		 	else if(jobPrompt2 === '3'){
+		 	else if(jobPrompt === '3'){
 		 		player.job = new PoliceOfficer();
 		 		i++;
 		 	}else{
@@ -174,6 +209,30 @@ function pickJob(status){
 		 	}
 
 			break;
+
+			case 'Upper Middle Class':
+
+		jobPrompt = prompt('Pick your options: \n 1. Head Doctor \n 2. Head Accountant \n 3. Head of Police  \n 4. Senior Software Developer');
+
+		 	if(jobPrompt === '1'){
+		 		player.job = new HeadDoctor();
+		 		i++;
+		 	}
+		 	else if(jobPromp2 === '2'){
+		 		player.job = new HeadAccountant();
+		 		i++;
+		 	}
+		 	else if(jobPrompt === '3'){
+		 		player.job = new HeadPolice();
+		 		i++;
+		 	}else{
+		 		player.job = new SeniorSoftwareDev();
+		 		i++;
+		 	}
+
+			break;
+
+			
 	}
 	
 }
@@ -182,7 +241,7 @@ function pickJob(status){
 function university(){
 
 	if(player.money <= 5000 || player.higherEducation === true || player.status === 'Lower Class'){
-		alert('You do not have enough money to go to university');
+		alert('You cannot go to university right now');
 	}else{
 		alert('You have attained higher education');
 		player.higherEducation = true;
@@ -209,26 +268,39 @@ function main(){
 		console.log(player.name, player.money);
 		if(player.money > 1000 && player.status === 'Lower Class'){
 			alert(`Lower Middle Class Achieved`);
-			player.status = 'Lower Middle Class';
+			player.status = 'Lower Middle Class'; 
+			i++
 		}
 
 		if(player.money > 9999 && player.status === 'Lower Middle Class' && player.higherEducation === true && player.assets === 1){
 			alert(`Middle Class Achieved`);
 			player.status = 'Middle Class';
+			i++
 		}
 
 		if(player.money > 99999 && player.status === 'Middle Class' && player.higherEducation === true && player.assets === 5){
-			console.log('You win');
+			alert('Upper Middle Class Achieved');
+			player.status = 'Upper Middle Class'
+			i++
 		}
 
-    	const menuPrompt = prompt(`Pick your options: \n 1. Get A Job \n 2. Go to work \n 3. Get a loan \n 4. Buy Assets \n 5. Get a Mortgage \n 6. Move on to next day \n This is Day ${i} \n ${player.status} ` );
+		if(player.money > 9999999 && player.status === 'Upper Middle Class' && player.higherEducation === true && player.assets === 5){
+			alert('You win');
+			console.log(`It took ${i} days to do this`)
+			break
+		}
+
+    	const menuPrompt = prompt(`Pick your options: \n 1. Get A Job \n 2. Go to work \n 3. Buy Assets \n 4. Move on to next day \n 5. Go to University \n This is Day ${i} \n ${player.status} ` );
 		 if(menuPrompt === '1'){
 		 	pickJob(player.status);
 		 }else if(menuPrompt === '2'){
 		 	player.job.moneyMaker();
-		 }else if(menuPrompt === '3' || menuPrompt === '4' || menuPrompt === '5'){
-		 	console.log('This is not available yet');
-		 }else{
+		 }else if(menuPrompt === '3'){
+			buyAssets();
+		 }else if(menuPrompt === '5'){
+			university();
+		 }
+		 else{
 		 	i++
 		 }
 	}
