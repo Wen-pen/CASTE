@@ -210,21 +210,15 @@ function main(){
 		if(player.money > 1000 && player.status === 'Lower Class'){
 			alert(`Lower Middle Class Achieved`);
 			player.status = 'Lower Middle Class';
-		
-			break;
-
 		}
 
 		if(player.money > 9999 && player.status === 'Lower Middle Class' && player.higherEducation === true && player.assets === 1){
 			alert(`Middle Class Achieved`);
 			player.status = 'Middle Class';
-			break;
-
 		}
 
 		if(player.money > 99999 && player.status === 'Middle Class' && player.higherEducation === true && player.assets === 5){
-			console.log('You win')
-			break;
+			console.log('You win');
 		}
 
     	const menuPrompt = prompt(`Pick your options: \n 1. Get A Job \n 2. Go to work \n 3. Get a loan \n 4. Buy Assets \n 5. Get a Mortgage \n 6. Move on to next day \n This is Day ${i} \n ${player.status} ` );
