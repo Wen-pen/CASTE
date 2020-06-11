@@ -218,7 +218,7 @@ function pickJob(status){
 		 		player.job = new HeadDoctor();
 		 		i++;
 		 	}
-		 	else if(jobPromp2 === '2'){
+		 	else if(jobPrompt === '2'){
 		 		player.job = new HeadAccountant();
 		 		i++;
 		 	}
