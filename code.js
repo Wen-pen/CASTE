@@ -24,13 +24,8 @@ Jobless.prototype.moneyMaker = () => {
 			alert('Made Money');
 	}
 
-
 const playerName = prompt('What is your name?');
 const player = new Character(playerName, 100000 , 'Middle Class', new Jobless(), true , 5 , false);
-
-
-
-
 
 class ConstructionWorker extends Jobless{
 	constructor(jobname, jobValue){
@@ -299,10 +294,10 @@ function main(){
 			buyAssets();
 		 }else if(menuPrompt === '5'){
 			university();
-		 }
-		 else{
-		 	i++
-		 }
+		 } else{
+			i++
+		}
+		
 	}
 }
 main();
