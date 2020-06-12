@@ -43,7 +43,7 @@ class FactoryWorker extends ConstructionWorker{
 		}
 }
 
- class Waiter extends FactoryWorker{
+class Waiter extends FactoryWorker{
  	constructor(jobname, jobValue){
  		super(jobname, jobValue);
 			this.jobname = 'Waiter';
@@ -51,7 +51,7 @@ class FactoryWorker extends ConstructionWorker{
 		}
  }
 
-  class OfficeHelp extends FactoryWorker{
+ class OfficeHelp extends FactoryWorker{
  	constructor(jobname, jobValue){
  		super(jobname, jobValue);
 			this.jobname = 'Waiter';
@@ -59,7 +59,7 @@ class FactoryWorker extends ConstructionWorker{
 		}
  }
 
-  class SchoolTeacher extends OfficeHelp{
+class SchoolTeacher extends OfficeHelp{
  	constructor(jobname, jobValue){
  		super(jobname, jobValue);
 			this.jobname = 'School Teacher';
@@ -84,7 +84,7 @@ class Doctor extends Nurse{
 		}
  }
 
- class Accountant extends Doctor{
+class Accountant extends Doctor{
  	constructor(jobname, jobValue, jobPath){
  		super(jobname, jobValue, jobPath);
 			this.jobname = 'Doctor';
@@ -93,7 +93,7 @@ class Doctor extends Nurse{
 		}
  }
 
- class SoftwareDev extends Accountant{
+class SoftwareDev extends Accountant{
  	constructor(jobname, jobValue, jobPath){
  		super(jobname, jobValue, jobPath);
 			this.jobname = 'SoftwareDev';
@@ -102,7 +102,7 @@ class Doctor extends Nurse{
 		}
  }
 
-  class PoliceOfficer extends SoftwareDev{
+class PoliceOfficer extends SoftwareDev{
  	constructor(jobname, jobValue, jobPath){
  		super(jobname, jobValue, jobPath);
 			this.jobname = 'PoliceOfficer';
@@ -111,7 +111,7 @@ class Doctor extends Nurse{
 		}
  }
 
- class HeadDoctor extends Doctor{
+class HeadDoctor extends Doctor{
 	 constructor(jobname, jobValue, jobPath){
 		 super(jobname, jobValue, jobPath)
 		 this.jobname = 'HeadDoctor';
@@ -119,7 +119,7 @@ class Doctor extends Nurse{
 	 }
  }
 
- class HeadAccountant extends Accountant{
+class HeadAccountant extends Accountant{
 	constructor(jobname, jobValue, jobPath){
 		super(jobname, jobValue, jobPath)
 		this.jobname = 'HeadAccountant';
