@@ -25,7 +25,7 @@ Jobless.prototype.moneyMaker = () => {
 	}
 
 const playerName = prompt('What is your name?');
-const player = new Character(playerName, 100000 , 'Middle Class', new Jobless(), true , 5 , false);
+const player = new Character(playerName, 0 , 'Lower Class', new Jobless(), false, 0, false);
 
 class ConstructionWorker extends Jobless{
 	constructor(jobname, jobValue){
@@ -51,7 +51,7 @@ class Waiter extends FactoryWorker{
 		}
  }
 
- class OfficeHelp extends FactoryWorker{
+class OfficeHelp extends FactoryWorker{
  	constructor(jobname, jobValue){
  		super(jobname, jobValue);
 			this.jobname = 'Waiter';
