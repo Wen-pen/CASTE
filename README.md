@@ -1,4 +1,4 @@
 # CASTE
-The crappiest text based clicker game on the planet
+A crappy incremental game made in Javascript
 
 Prototype now ready
