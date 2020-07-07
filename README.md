@@ -1,4 +1,2 @@
 # CASTE
-A crappy incremental game made in Javascript
-
-Prototype now ready
+A crappy incremental alert() game made in Javascript
